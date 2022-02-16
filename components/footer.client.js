@@ -1,10 +1,10 @@
-import { useEffect } from "react"
+import { useMemo } from "react"
 import { useAppContext } from "./AppContext"
 
 export default function Footer() {
   const { mounted } = useAppContext()
-  useEffect(() => {
-    console.log('Footer:mounted', { mounted })
+  useMemo(() => {
+    console.log('Footer:mounted', { mounted, hasWindow: typeof window !== "undefined" })
   }, [mounted])
   return (
     <div>

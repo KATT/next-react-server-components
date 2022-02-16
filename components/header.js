@@ -1,8 +1,16 @@
-import Nav from './nav'
-import Logo from './logo'
 import Link from 'next/link'
+import { useMemo } from 'react'
+import { useAppContext } from './AppContext'
+import Logo from './logo'
+import Nav from './nav'
 
 export default function Header() {
+
+  const { mounted } = useAppContext()
+
+  useMemo(() => {
+    console.log('Header:mounted', { mounted, hasWindow: typeof window !== "undefined" })
+  }, [mounted])
   return (
     <>
       <style

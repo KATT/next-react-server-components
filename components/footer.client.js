@@ -1,4 +1,11 @@
+import { useEffect } from "react"
+import { useAppContext } from "./AppContext"
+
 export default function Footer() {
+  const { mounted } = useAppContext()
+  useEffect(() => {
+    console.log('Footer:mounted', { mounted })
+  }, [mounted])
   return (
     <div>
       <footer className="footer">

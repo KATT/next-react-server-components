@@ -1,14 +1,14 @@
-import { createContext, useContext } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
-const AppContext = createContext({
-  foo: "bar"
-});
+const AppContext = createContext({});
 
 export const AppContextProvider = (props) => {
+  const [mounted, setMounted] = useState(false)
+  useEffect(() => {
+    setMounted(true)
+  }, [])
   return (
-    <AppContext.Provider value={{
-      foo: "bar"
-    }}>
+    <AppContext.Provider value={{ mounted }}>
       {props.children}
     </AppContext.Provider>
   );
